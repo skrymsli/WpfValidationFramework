@@ -14,7 +14,9 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <TextBlock Margin="10,0" >Name</TextBlock>
-            <TextBox Width="200" Grid.Column="1" Text="{Binding Person.FirstName, ValidatesOnNotifyDataErrors=True}"/>
+            <TextBox Width="200" Grid.Column="1" Text="{Binding Person.FirstName, ValidatesOnNotifyDataErrors=True}"
+                     HorizontalAlignment="Left"
+                     Validation.ErrorTemplate="{StaticResource ErrorTemplateStyle}"/>
         </Grid>
         <Grid Margin="0,0,0,10">
             <Grid.ColumnDefinitions>
@@ -22,7 +24,9 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <TextBlock Margin="10,0">Id</TextBlock>
-            <Slider Grid.Column="1" Minimum="1" Maximum="120" Value="{Binding Person.Id, ValidatesOnNotifyDataErrors=True}"/>
+            <Slider Grid.Column="1" Minimum="1" Maximum="120" Value="{Binding Person.Id, ValidatesOnNotifyDataErrors=True}" Width="200"
+                    HorizontalAlignment="Left"
+                    Validation.ErrorTemplate="{StaticResource ErrorTemplateStyle}"/>
         </Grid>
         <Grid Margin="0,0,0,10">
             <Grid.ColumnDefinitions>
@@ -30,7 +34,9 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <TextBlock Margin="10,0">Email</TextBlock>
-            <TextBox Width="200" Grid.Column="1" Text="{Binding Person.EmailAddress, ValidatesOnNotifyDataErrors=True}"/>
+            <TextBox Width="200" Grid.Column="1" Text="{Binding Person.EmailAddress, ValidatesOnNotifyDataErrors=True}"
+                     HorizontalAlignment="Left"
+                     Validation.ErrorTemplate="{StaticResource ErrorTemplateStyle}"/>
         </Grid>
         <StackPanel Orientation="Horizontal">
             <Button Margin="10" Padding ="10" Command="{Binding Apply}">Apply</Button>

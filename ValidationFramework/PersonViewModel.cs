@@ -8,18 +8,38 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Navigation;
 using Dell.Service.Client.Api.Dto;
+using FluentValidation;
 using ReactiveUI;
 
 namespace ValidationFramework
 {
+
+    public class UserValidator : AbstractValidator<User>
+    {
+        public UserValidator() {
+            RuleFor(user => user.FirstName)
+                .Equal("Cody")
+                .WithName("Name")
+                .WithMessage("{PropertyName} is {PropertyValue}, but should be {ComparisonValue}");
+
+            RuleFor(user => user.Id)
+                .LessThan(100)
+                .GreaterThan(50)
+                .WithMessage("{PropertyName} must be between 50 and 100");
+        }
+    }
+
+    class PersonViewModelValidator : AbstractValidator<PersonViewModel>
+    {
+        public PersonViewModelValidator()
+        {
+            RuleFor(pvm => pvm.Person).NotNull();
+        }
+    }
+
+
     class PersonViewModel : ValidatedViewModel
     {
-
-        public PersonViewModel()
-        {
-            
-        }
-
 
         #region Property Person
         private User _person = default(User);
@@ -39,17 +59,9 @@ namespace ValidationFramework
                 EmailAddress = "Inmate #666"
             };
 
-            Observable.FromEventPattern<PropertyChangedEventHandler, PropertyChangedEventArgs>(
-                x => Person.PropertyChanged += x,
-                x => Person.PropertyChanged -= x)
-                .Subscribe(x =>
-                {
-                    this.RaisePropertyChanged(x.EventArgs.PropertyName);
-                });
-
-            Person.Validate(x => x.FirstName)
-                .AddRule(x => x == "Cody", x => "Name is " + x + ", but should be Cody");
-
+            RegisterValidation(this, new PersonViewModelValidator()).RegisterDisposable(this);
+            RegisterValidation(Person, new UserValidator()).RegisterDisposable(this);
+            
             return Task.FromResult<object>(null);
         }
 

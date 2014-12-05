@@ -37,13 +37,16 @@
     <Reference Include="Autofac">
       <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
     </Reference>
-    <Reference Include="Dell.Service.Client, Version=0.0.428.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Dell.Service.Client, Version=0.0.429.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Dell.Service.Client.0.0.428\lib\net45\Dell.Service.Client.dll</HintPath>
+      <HintPath>..\packages\Dell.Service.Client.0.0.429\lib\net45\Dell.Service.Client.dll</HintPath>
     </Reference>
-    <Reference Include="Dell.Service.Client.Interfaces, Version=0.0.428.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Dell.Service.Client.Interfaces, Version=0.0.429.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Dell.Service.Client.Interfaces.0.0.428\lib\net45\Dell.Service.Client.Interfaces.dll</HintPath>
+      <HintPath>..\packages\Dell.Service.Client.Interfaces.0.0.429\lib\net45\Dell.Service.Client.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation">
+      <HintPath>..\packages\FluentValidation.5.5.0.0\lib\Net40\FluentValidation.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -92,6 +95,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BaseDisposableReactiveObject.cs" />
+    <Compile Include="BooleanOrConverter.cs" />
+    <Compile Include="DisposableExtensions.cs" />
+    <Compile Include="Ensure.cs" />
     <Compile Include="ICanBeBusy.cs" />
     <Compile Include="KvPair.cs" />
     <Compile Include="PersonView.xaml.cs">
