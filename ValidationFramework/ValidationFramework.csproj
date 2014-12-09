@@ -97,6 +97,7 @@
     </ApplicationDefinition>
     <Compile Include="BaseDisposableReactiveObject.cs" />
     <Compile Include="BooleanOrConverter.cs" />
+    <Compile Include="CollectionExtensions.cs" />
     <Compile Include="DisposableExtensions.cs" />
     <Compile Include="Ensure.cs" />
     <Compile Include="ICanBeBusy.cs" />

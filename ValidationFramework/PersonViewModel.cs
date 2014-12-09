@@ -65,10 +65,9 @@ namespace ValidationFramework
             return Task.FromResult<object>(null);
         }
 
-        protected override async Task<bool> CommitDelegate()
+        protected override async Task CommitDelegate()
         {
             await Task.Delay(TimeSpan.FromSeconds(4));
-            return true;
         }
 
     }
